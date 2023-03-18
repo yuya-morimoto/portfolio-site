@@ -15,7 +15,7 @@ if (optionsElements) {
 const globalOptions: Partial<TippyProps> = {
   allowHTML: true,
   delay: [200, 200],
-  placement: "right",
+  placement: "top",
   interactive: true,
   ...clientInitOptions,
 };
