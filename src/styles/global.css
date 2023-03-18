@@ -3,7 +3,23 @@
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   text-decoration: none;
   outline: none;
+}
+
+::selection {
+  background-color: #06b94d;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
 }

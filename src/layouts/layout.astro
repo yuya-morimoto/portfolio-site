@@ -23,6 +23,7 @@ import dockerIcon from "../images/docker.png";
 import gcpIcon from "../images/gcp.png";
 import labviewIcon from "../images/labview.png";
 import postgresqlIcon from "../images/postgresql.png";
+import type { Props as SkillsProps } from "../components/Skills.astro";
 
 const introductionProps = {
   username: import.meta.env.PUBLIC_USERNAME ?? "Unknown",
@@ -30,104 +31,188 @@ const introductionProps = {
     import.meta.env.PUBLIC_DESCRIPTION ?? "please set environment variables",
 };
 
-const languageSkillsProps = {
+const languageSkillsProps: SkillsProps = {
   title: "Language",
   skills: [
     {
       icon: javascriptIcon,
       alt: "JavaScript",
+      name: "JavaScript",
+      exp: "3year",
+      level: 3,
+      like: 2,
     },
     {
       icon: typescriptIcon,
       alt: "TypeScript",
+      name: "TypeScript",
+      exp: "2year",
+      level: 3,
+      like: 4,
     },
     {
       icon: pythonIcon,
       alt: "Python",
+      name: "Python",
+      exp: "3year",
+      level: 2,
+      like: 3,
     },
     {
       icon: javaIcon,
       alt: "Java",
+      name: "Java",
+      exp: "1year",
+      level: 2,
+      like: 2,
     },
     {
       icon: cSharpIcon,
-      alt: "C#",
+      alt: "C#.Net",
+      name: "C#.Net",
+      exp: "2year",
+      level: 1,
+      like: 2,
     },
   ],
 };
 
-const libraryFrameworkSkills = {
+const libraryFrameworkSkills: SkillsProps = {
   title: "Library & Framework",
   skills: [
     {
       icon: reactIcon,
-      alt: "React, ReactNative",
+      alt: "React & ReactNative",
+      name: "React & ReactNative",
+      exp: "3year",
+      level: 4,
+      like: 4,
     },
     {
       icon: expoIcon,
       alt: "Expo",
+      name: "Expo BareWorkflow",
+      exp: "2year",
+      level: 2,
+      like: 3,
     },
     {
       icon: svelteIcon,
       alt: "Svelte",
+      name: "SvelteKit",
+      exp: "6month",
+      level: 2,
+      like: 3,
     },
     {
       icon: astroIcon,
       alt: "Astro",
+      name: "This site is Astro!!!",
+      exp: "1month",
+      level: 1,
+      like: 3,
     },
     {
       icon: djangoIcon,
       alt: "Django",
+      name: "Django & DRF",
+      exp: "3year",
+      level: 3,
+      like: 4,
     },
     {
       icon: springbootIcon,
       alt: "SpringBoot",
+      name: "SpringBoot",
+      exp: "1year",
+      level: 1,
+      like: 2,
     },
     {
       icon: dotnetIcon,
       alt: "DotNet",
+      name: "WinFormApp & WPF",
+      exp: "2year",
+      level: 1,
+      like: 1,
     },
   ],
 };
 
-const OtherSkills = {
+const OtherSkills: SkillsProps = {
   title: "Other",
   skills: [
     {
       icon: postgresqlIcon,
       alt: "PostgreSQL",
+      name: "PostgreSQL",
+      exp: "2year",
+      level: 2,
+      like: 3,
     },
     {
       icon: herokuIcon,
       alt: "Heroku",
+      name: "Heroku",
+      exp: "2year",
+      level: 3,
+      like: 2,
     },
     {
       icon: awsIcon,
       alt: "AWS",
+      name: "AWS",
+      exp: "1year",
+      level: 3,
+      like: 3,
     },
     {
       icon: gcpIcon,
       alt: "GCP",
+      name: "GCP",
+      exp: "1year",
+      level: 2,
+      like: 3,
     },
     {
       icon: azureIcon,
       alt: "Azure",
+      name: "This site on Azure!!!",
+      exp: "3month",
+      level: 2,
+      like: 3,
     },
     {
       icon: dockerIcon,
       alt: "Docker",
+      name: "Docker",
+      exp: "1year",
+      level: 2,
+      like: 4,
     },
     {
       icon: appleIcon,
       alt: "Apple",
+      name: "RN iOS App",
+      exp: "1.5year",
+      level: 2,
+      like: 4,
     },
     {
       icon: androidIcon,
       alt: "Android",
+      name: "RN Android App",
+      exp: "1.5year",
+      level: 2,
+      like: 4,
     },
     {
       icon: labviewIcon,
       alt: "LabView",
+      name: "LabView",
+      exp: "1year",
+      level: 1,
+      like: 1,
     },
   ],
 };
@@ -140,10 +225,18 @@ const contactProps = {
 };
 ---
 
-<Introduction {...introductionProps} />
-{
-  [languageSkillsProps, libraryFrameworkSkills, OtherSkills].map((skills) => (
-    <Skills {...skills} />
-  ))
-}
-<Contact {...contactProps} />
+<div class="layout">
+  <Introduction {...introductionProps} />
+  {
+    [languageSkillsProps, libraryFrameworkSkills, OtherSkills].map((skills) => (
+      <Skills {...skills} />
+    ))
+  }
+  <Contact {...contactProps} />
+</div>
+
+<style>
+  .layout {
+    margin-bottom: 64px;
+  }
+</style>

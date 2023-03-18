@@ -1,7 +1,7 @@
 ---
 import userIcon from "../images/user.png";
 
-interface Props {
+export interface Props {
   username: string;
   description: string;
 }
@@ -47,5 +47,22 @@ const { username, description } = Astro.props;
   .introduction__image {
     width: 360px;
     height: 360px;
+  }
+
+  @media (max-width: 960px) {
+    .introduction {
+      height: 50svh;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .introduction__text--title {
+      font-size: 24px;
+    }
+
+    .introduction__image {
+      width: 120px;
+      height: 120px;
+    }
   }
 </style>

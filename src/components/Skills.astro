@@ -1,11 +1,26 @@
 ---
-interface Props {
-  title: string;
-  skills: {
-    icon: string;
-    alt: string;
-  }[];
+interface Skill {
+  icon: string;
+  alt: string;
+  name: string;
+  exp: string;
+  level: 1 | 2 | 3 | 4 | 5;
+  like: 1 | 2 | 3 | 4 | 5;
 }
+
+export interface Props {
+  title: string;
+  skills: Skill[];
+}
+
+const convertSkillToTooltipTitle = (skill: Skill): string => {
+  return [
+    `${skill.name}`,
+    `exp: ${skill.exp}`,
+    `level: ${skill.level}/5`,
+    `like: ${skill.like}/5`,
+  ].join("<br>");
+};
 
 const { title, skills } = Astro.props;
 ---
@@ -15,7 +30,13 @@ const { title, skills } = Astro.props;
   <div class="skill-list">
     {
       skills.map((item) => (
-        <img class="skill-list__item" src={item.icon} alt={item.alt} />
+        <div class="skill-list__item">
+          <img
+            src={item.icon}
+            alt={item.alt}
+            title={convertSkillToTooltipTitle(item)}
+          />
+        </div>
       ))
     }
   </div>
@@ -40,8 +61,41 @@ const { title, skills } = Astro.props;
   .skill-list__item {
     flex-wrap: nowrap;
     flex-shrink: 0;
-    width: 240px;
-    height: 240px;
-    margin: 16px;
+    margin: 24px 16px;
+  }
+
+  .skill-list__item img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .skill-list__item img {
+    transition: 1s all;
+  }
+
+  .skill-list__item img:hover {
+    transform: scale(1.2, 1.2);
+    transition: 1s all;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 960px) {
+    .skills {
+      margin-bottom: 32px;
+    }
+    .skills__title {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .skill-list__item img {
+      width: 80px;
+      height: 80px;
+      margin: 12px 8px;
+    }
+
+    .skill-list__item img:hover {
+      transform: scale(1.1, 1.1);
+    }
   }
 </style>
