@@ -39,10 +39,6 @@ npm install
 npm run dev
 ```
 
-# Note
-
-注意点などがあれば書く
-
 # Author
 
 作成情報を列挙する
