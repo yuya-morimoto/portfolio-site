@@ -1,0 +1,29 @@
+---
+import "tippy.js/dist/tippy.css";
+import type { Placement, Props as TippyProps } from "tippy.js";
+
+interface Props extends Partial<TippyProps> {
+  allowHTML?: boolean;
+  theme?: string;
+  maxWidth?: string;
+  delay?: [number, number];
+  placement?: Placement;
+  interactive?: boolean;
+}
+
+const props = Astro.props;
+---
+
+{
+  Object.entries(props).length > 0 && (
+    <script
+      type="application/json"
+      tippy-init-options
+      set:html={JSON.stringify({ props })}
+    />
+  )
+}
+
+<script>
+  import "../scripts/tippy.client.ts";
+</script>
