@@ -1,4 +1,5 @@
 ---
+import Tooltip from "../components/Tooltip.astro";
 import Layout from "../layouts/layout.astro";
 import "../styles/global.css";
 ---
@@ -14,20 +15,20 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Portfolio</title>
+    <Tooltip />
   </head>
   <body>
     <Layout />
+    <style>
+      body {
+        background: radial-gradient(
+          97.5% 46.57% at 100% 0%,
+          #005321 0%,
+          rgba(0, 75, 30, 0.98369) 26.42%,
+          rgba(0, 30, 12, 0.894614) 63.67%,
+          rgba(0, 13, 5, 0.86) 100%
+        );
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  body {
-    background: radial-gradient(
-      97.5% 46.57% at 100% 0%,
-      #005321 0%,
-      rgba(0, 75, 30, 0.98369) 26.42%,
-      rgba(0, 30, 12, 0.894614) 63.67%,
-      rgba(0, 13, 5, 0.86) 100%
-    );
-  }
-</style>
