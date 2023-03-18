@@ -1,0 +1,51 @@
+---
+import userIcon from "../images/user.png";
+
+interface Props {
+  username: string;
+  description: string;
+}
+
+const { username, description } = Astro.props;
+---
+
+<div class="introduction">
+  <div class="introduction__text-wrapper">
+    <h1 class="introduction__text--title">
+      I'm<br />{username}.
+    </h1>
+    <p class="introduction__text--description">
+      {description}.
+    </p>
+  </div>
+  <img class="introduction__image" src={userIcon} alt="user icon" />
+</div>
+
+<style>
+  .introduction {
+    height: 100svh;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .introduction__text-wrapper {
+    color: white;
+  }
+
+  .introduction__text--title {
+    font-size: 48px;
+  }
+
+  .introduction__text--description {
+    font-size: 16px;
+    color: lightgray;
+  }
+
+  .introduction__image {
+    width: 360px;
+    height: 360px;
+  }
+</style>
