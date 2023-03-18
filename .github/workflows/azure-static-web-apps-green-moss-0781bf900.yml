@@ -25,7 +25,10 @@ jobs:
       - name: Azure CLI script
         uses: azure/CLI@v1
         with:
-          inlineScript: echo "PUBLIC_USERNAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-USERNAME --query value | jq -r '.')"
+          inlineScript: |
+            PUBLIC_USERNAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-USERNAME --query value | jq -r '.')
+            echo $PUBLIC_USERNAME
+            echo "PUBLIC_USERNAME=$PUBLIC_USERNAME" >> $GITHUB_ENV
       - name: Install dependencies
         run: npm install
       - name: Check
