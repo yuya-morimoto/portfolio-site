@@ -28,10 +28,10 @@ jobs:
           inlineScript: |
             PUBLIC_USERNAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-USERNAME --query value | jq -r '.')
             PUBLIC_DESCRIPTION=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-DESCRIPTION --query value | jq -r '.')
-            PUBLIC_CONTACT_EMAIL_ADDRESS=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-EMAIL_ADDRESS --query value | jq -r '.')
-            PUBLIC_CONTACT_TWITTER_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-TWITTER_NAME --query value | jq -r '.')
-            PUBLIC_CONTACT_GITHUB_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-GITHUB_NAME --query value | jq -r '.')
-            PUBLIC_CONTACT_ZENN_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-ZENN_NAME --query value | jq -r '.')
+            PUBLIC_CONTACT_EMAIL_ADDRESS=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-EMAIL --query value | jq -r '.')
+            PUBLIC_CONTACT_TWITTER_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-TWITTER --query value | jq -r '.')
+            PUBLIC_CONTACT_GITHUB_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-GITHUB --query value | jq -r '.')
+            PUBLIC_CONTACT_ZENN_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-ZENN --query value | jq -r '.')
             echo "PUBLIC_USERNAME=$PUBLIC_USERNAME" >> $GITHUB_ENV
             echo "PUBLIC_DESCRIPTION=$PUBLIC_DESCRIPTION" >> $GITHUB_ENV
             echo "PUBLIC_CONTACT_EMAIL_ADDRESS=$PUBLIC_CONTACT_EMAIL_ADDRESS" >> $GITHUB_ENV
