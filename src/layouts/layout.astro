@@ -1,0 +1,149 @@
+---
+import Contact from "../components/Contact.astro";
+import Introduction from "../components/Introduction.astro";
+import Skills from "../components/Skills.astro";
+import cSharpIcon from "../images/c-sharp.png";
+import pythonIcon from "../images/python.png";
+import javaIcon from "../images/java.png";
+import javascriptIcon from "../images/javascript.png";
+import typescriptIcon from "../images/typescript.png";
+import reactIcon from "../images/react.png";
+import djangoIcon from "../images/django.png";
+import dotnetIcon from "../images/dotnet.png";
+import expoIcon from "../images/expo.png";
+import springbootIcon from "../images/springboot.png";
+import svelteIcon from "../images/svelte.png";
+import astroIcon from "../images/astro.png";
+import herokuIcon from "../images/heroku.png";
+import androidIcon from "../images/android.png";
+import appleIcon from "../images/apple.png";
+import awsIcon from "../images/aws.png";
+import azureIcon from "../images/azure.png";
+import dockerIcon from "../images/docker.png";
+import gcpIcon from "../images/gcp.png";
+import labviewIcon from "../images/labview.png";
+import postgresqlIcon from "../images/postgresql.png";
+
+const introductionProps = {
+  username: import.meta.env.PUBLIC_USERNAME ?? "Unknown",
+  description:
+    import.meta.env.PUBLIC_DESCRIPTION ?? "please set environment variables",
+};
+
+const languageSkillsProps = {
+  title: "Language",
+  skills: [
+    {
+      icon: javascriptIcon,
+      alt: "JavaScript",
+    },
+    {
+      icon: typescriptIcon,
+      alt: "TypeScript",
+    },
+    {
+      icon: pythonIcon,
+      alt: "Python",
+    },
+    {
+      icon: javaIcon,
+      alt: "Java",
+    },
+    {
+      icon: cSharpIcon,
+      alt: "C#",
+    },
+  ],
+};
+
+const libraryFrameworkSkills = {
+  title: "Library & Framework",
+  skills: [
+    {
+      icon: reactIcon,
+      alt: "React, ReactNative",
+    },
+    {
+      icon: expoIcon,
+      alt: "Expo",
+    },
+    {
+      icon: svelteIcon,
+      alt: "Svelte",
+    },
+    {
+      icon: astroIcon,
+      alt: "Astro",
+    },
+    {
+      icon: djangoIcon,
+      alt: "Django",
+    },
+    {
+      icon: springbootIcon,
+      alt: "SpringBoot",
+    },
+    {
+      icon: dotnetIcon,
+      alt: "DotNet",
+    },
+  ],
+};
+
+const OtherSkills = {
+  title: "Other",
+  skills: [
+    {
+      icon: postgresqlIcon,
+      alt: "PostgreSQL",
+    },
+    {
+      icon: herokuIcon,
+      alt: "Heroku",
+    },
+    {
+      icon: awsIcon,
+      alt: "AWS",
+    },
+    {
+      icon: gcpIcon,
+      alt: "GCP",
+    },
+    {
+      icon: azureIcon,
+      alt: "Azure",
+    },
+    {
+      icon: dockerIcon,
+      alt: "Docker",
+    },
+    {
+      icon: appleIcon,
+      alt: "Apple",
+    },
+    {
+      icon: androidIcon,
+      alt: "Android",
+    },
+    {
+      icon: labviewIcon,
+      alt: "LabView",
+    },
+  ],
+};
+
+const contactProps = {
+  email: import.meta.env.PUBLIC_CONTACT_EMAIL_ADDRESS ?? "",
+  twitterName: import.meta.env.PUBLIC_CONTACT_TWITTER_NAME ?? "",
+  githubName: import.meta.env.PUBLIC_CONTACT_GITHUB_NAME ?? "",
+  zennName: import.meta.env.PUBLIC_CONTACT_ZENN_NAME ?? "",
+};
+---
+
+<Introduction {...introductionProps} />
+{
+  [languageSkillsProps, libraryFrameworkSkills, OtherSkills].map((skills) => (
+    <Skills {...skills} />
+  ))
+}
+<Contact {...contactProps} />
