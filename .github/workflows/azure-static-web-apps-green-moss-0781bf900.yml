@@ -22,23 +22,32 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Azure CLI script
+      - name: Set GitHub Env Azure CLI script
         uses: azure/CLI@v1
         with:
-          inlineScript: echo "PUBLIC_USERNAME=`az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-USERNAME --query value`" >> $GITHUB_ENV
+          inlineScript: |
+            PUBLIC_USERNAME=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-USERNAME --query value | jq -r '.')
+            PUBLIC_DESCRIPTION=$(az keyvault secret show --vault-name portfolio-site-env --name PORTFOLIO-DESCRIPTION --query value | jq -r '.')
+            PUBLIC_CONTACT_EMAIL_ADDRESS=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-EMAIL --query value | jq -r '.')
+            PUBLIC_CONTACT_TWITTER_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-TWITTER --query value | jq -r '.')
+            PUBLIC_CONTACT_GITHUB_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-GITHUB --query value | jq -r '.')
+            PUBLIC_CONTACT_ZENN_NAME=$(az keyvault secret show --vault-name portfolio-site-env --name CONTACT-ZENN --query value | jq -r '.')
+            echo "PUBLIC_USERNAME=$PUBLIC_USERNAME" >> $GITHUB_ENV
+            echo "PUBLIC_DESCRIPTION=$PUBLIC_DESCRIPTION" >> $GITHUB_ENV
+            echo "PUBLIC_CONTACT_EMAIL_ADDRESS=$PUBLIC_CONTACT_EMAIL_ADDRESS" >> $GITHUB_ENV
+            echo "PUBLIC_CONTACT_TWITTER_NAME=$PUBLIC_CONTACT_TWITTER_NAME" >> $GITHUB_ENV
+            echo "PUBLIC_CONTACT_GITHUB_NAME=$PUBLIC_CONTACT_GITHUB_NAME" >> $GITHUB_ENV
+            echo "PUBLIC_CONTACT_ZENN_NAME=$PUBLIC_CONTACT_ZENN_NAME" >> $GITHUB_ENV
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GREEN_MOSS_0781BF900 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "api" # Api source code path - optional
-          output_location: "dist" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          app_location: "/"
+          api_location: "api"
+          output_location: "dist"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
