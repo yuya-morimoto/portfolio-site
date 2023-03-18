@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  skills: {
+    icon: string;
+    alt: string;
+  }[];
+}
+
+const { title, skills } = Astro.props;
+---
+
+<div class="skills">
+  <h1 class="skills__title">{title}</h1>
+  <div class="skill-list">
+    {
+      skills.map((item) => (
+        <img class="skill-list__item" src={item.icon} alt={item.alt} />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .skills {
+    margin-bottom: 64px;
+  }
+  .skills__title {
+    text-align: center;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 64px;
+  }
+
+  .skill-list {
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  .skill-list__item {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    width: 240px;
+    height: 240px;
+    margin: 16px;
+  }
+</style>
