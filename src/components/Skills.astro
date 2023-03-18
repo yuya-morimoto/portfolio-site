@@ -40,8 +40,24 @@ const { title, skills } = Astro.props;
   .skill-list__item {
     flex-wrap: nowrap;
     flex-shrink: 0;
-    width: 240px;
-    height: 240px;
+    width: 180px;
+    height: 180px;
     margin: 16px;
+  }
+
+  @media (max-width: 960px) {
+    .skills {
+      margin-bottom: 32px;
+    }
+    .skills__title {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
+
+    .skill-list__item {
+      width: 80px;
+      height: 80px;
+      margin: 8px;
+    }
   }
 </style>

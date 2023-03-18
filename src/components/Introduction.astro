@@ -48,4 +48,21 @@ const { username, description } = Astro.props;
     width: 360px;
     height: 360px;
   }
+
+  @media (max-width: 960px) {
+    .introduction {
+      height: 50svh;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .introduction__text--title {
+      font-size: 24px;
+    }
+
+    .introduction__image {
+      width: 120px;
+      height: 120px;
+    }
+  }
 </style>

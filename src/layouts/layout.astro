@@ -140,10 +140,18 @@ const contactProps = {
 };
 ---
 
-<Introduction {...introductionProps} />
-{
-  [languageSkillsProps, libraryFrameworkSkills, OtherSkills].map((skills) => (
-    <Skills {...skills} />
-  ))
-}
-<Contact {...contactProps} />
+<div class="layout">
+  <Introduction {...introductionProps} />
+  {
+    [languageSkillsProps, libraryFrameworkSkills, OtherSkills].map((skills) => (
+      <Skills {...skills} />
+    ))
+  }
+  <Contact {...contactProps} />
+</div>
+
+<style>
+  .layout {
+    margin-bottom: 64px;
+  }
+</style>
