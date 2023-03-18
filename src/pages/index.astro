@@ -1,15 +1,33 @@
 ---
+import Layout from "../layouts/layout.astro";
+import "../styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <Layout />
+  </body>
 </html>
+
+<style>
+  body {
+    background: radial-gradient(
+      97.5% 46.57% at 100% 0%,
+      #005321 0%,
+      rgba(0, 75, 30, 0.98369) 26.42%,
+      rgba(0, 30, 12, 0.894614) 63.67%,
+      rgba(0, 13, 5, 0.86) 100%
+    );
+  }
+</style>
