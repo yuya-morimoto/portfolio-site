@@ -2,13 +2,13 @@
 
 個人開発のモチベのために自己紹介用の軽いサイトを作成してみた。
 
-# DEMO
+# Demo
 
 ![image](https://user-images.githubusercontent.com/84908365/226121943-54c56050-38ed-4252-907b-a6f2551063e2.png)
 
 # Features
 
-Astro, Azure と使用してみたい技術を使った。
+使ってみたい技術(Astro, Azure)使ってみた。
 
 # Requirement
 
@@ -41,7 +41,8 @@ npm run dev
 
 # Author
 
-作成情報を列挙する
-
 - 作成者: yuya-morimoto
 - E-mail: my.hack.0312@gmail.com
+
+# License
+[MIT license](https://github.com/yuya-morimoto/portfolio-site/blob/main/LICENSE)
