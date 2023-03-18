@@ -1,0 +1,83 @@
+---
+import emailIcon from "../images/email.png";
+import twitterIcon from "../images/twitter.png";
+import githubIcon from "../images/github.png";
+import zennIcon from "../images/zenn.png";
+
+interface Props {
+  email: string;
+  twitterName: string;
+  githubName: string;
+  zennName: string;
+}
+
+const { email, twitterName, githubName, zennName } = Astro.props;
+
+const title = "Contact";
+const contactLinks = [
+  {
+    src: emailIcon,
+    alt: "email",
+    href: `mailto:${email}`,
+  },
+  {
+    src: twitterIcon,
+    alt: "twitter",
+    href: `https://twitter.com/${twitterName}`,
+  },
+  {
+    src: githubIcon,
+    alt: "github",
+    href: `https://github.com/${githubName}`,
+  },
+  {
+    src: zennIcon,
+    alt: "zenn",
+    href: `https://zenn.dev/${zennName}`,
+  },
+];
+---
+
+<div class="contact">
+  <h1 class="contact__title">{title}</h1>
+  <div class="contact__icon-wrapper">
+    {
+      contactLinks.map((item) => (
+        <a href={item.href} target="_blank">
+          <img class="contact__link-icon" src={item.src} alt={item.alt} />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .contact {
+    height: 100svh;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact__title {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 64px;
+  }
+
+  .contact__icon-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .contact__link-icon {
+    width: 160px;
+    height: 160px;
+  }
+</style>
