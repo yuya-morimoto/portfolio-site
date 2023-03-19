@@ -6,6 +6,10 @@
 
 ![image](https://user-images.githubusercontent.com/84908365/226121943-54c56050-38ed-4252-907b-a6f2551063e2.png)
 
+# System
+
+![system](https://user-images.githubusercontent.com/84908365/226156349-d1f6b1ed-7b45-434a-a914-c36bc3675f43.png)
+
 # Features
 
 使ってみたい技術(Astro, Azure)使ってみた。
